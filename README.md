@@ -1,1 +1,1 @@
-Priyecto prueba jenkins CICD
+Proyecto prueba jenkins CICD
