@@ -15,6 +15,7 @@ pipeline {
       steps {
         sh 'echo passed'
         //git branch: 'main', url: ''
+        git branch: 'master', url: 'https://github.com/iamsaikishore/Project3---java-maven-sonar-argocd-k8s.git'
       }
     }
     stage('Build and Test') {
