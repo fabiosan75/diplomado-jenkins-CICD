@@ -68,7 +68,7 @@ pipeline {
                 sh "docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD"
   
               // Push the image
-              sh "docker push ${DOCKER_IMAGE}:latest"
+              sh "docker push ${DOCKER_IMAGE}"
           }
         }
       }
