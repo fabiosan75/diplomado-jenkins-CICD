@@ -6,7 +6,7 @@ pipeline {
     }
   }
   stages {
-     stage('Clean Workspace') {
+    stage('Clean Workspace') {
        steps {
         sh 'sudo chown -R jenkins:jenkins /var/lib/jenkins/workspace/Diplomado-Arquitectura-Actividad-3'
         // deleteDir()
