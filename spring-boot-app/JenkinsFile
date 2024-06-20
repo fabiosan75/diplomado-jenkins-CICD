@@ -44,7 +44,7 @@ pipeline {
                 sh 'cd spring-boot-app && mvn sonar:sonar -Dsonar.login=$SONAR_AUTH_TOKEN -Dsonar.host.url=${SONAR_URL}'
               }
           }
-          catch (Exeption e) {
+          catch (Exception e) {
             echo " Sonar will failed, not mandatory... "
           }
 
