@@ -19,7 +19,7 @@ spec:
 <<<<<<< HEAD
         image: abhishekf5/ultimate-cicd:56
 =======
-        image: abhishekf5/ultimate-cicd:replaceImageTag
+        image: abhishekf5/ultimate-cicd:65
 >>>>>>> c8a1f97 (FIX incremental imageTag)
         ports:
         - containerPort: 8080
