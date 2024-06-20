@@ -13,12 +13,12 @@ pipeline {
     }
   }
   stages {
-    stage('Clean Workspace') {
-       steps {
-      sh 'chown -R jenkins:jenkins /var/lib/jenkins/workspace/Diplomado-Arquitectura-Actividad-3'
-       //  deleteDir()
-       }
-    }
+    // stage('Clean Workspace') {
+    //    steps {
+    //   sh 'chown -R jenkins:jenkins /var/lib/jenkins/workspace/Diplomado-Arquitectura-Actividad-3'
+    //    //  deleteDir()
+    //    }
+    // }
     stage('Checkout') {
       steps {
         sh 'echo passed'
