@@ -3,7 +3,7 @@ pipeline {
         DOCKER_IMAGE = "diplomado_jenkins_cicd:${BUILD_NUMBER}"
         // DOCKERFILE_LOCATION = "spring-boot-app/Dockerfile"
         REGISTRY_CREDENTIALS = credentials('docker-cred')
-        dockerHubCredentials = 'docker-cred'
+        DOCKER_CREDENTIALS_ID = 'docker-cred'
   }
 
   agent {
@@ -57,19 +57,22 @@ pipeline {
     stage('Push Docker Image'){
         steps {
           script {
+             withDockerRegistry(credentialsId: 'docker-cred') {
+     sh "docker push ${DOCKER_IMAGE}"
+ }
             // Use Jenkins credentials for Docker Hub login
-              withCredentials([
-                  usernamePassword(
-                    credentialsId: dockerHubCredentials, 
-                    usernameVariable: 'DOCKER_USERNAME', 
-                    passwordVariable: 'DOCKER_PASSWORD'
-                  )
-                ]) {
-                sh "docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD"
+          //     withCredentials([
+          //         usernamePassword(
+          //           credentialsId: 'DOCKER_CREDENTIALS_ID', 
+          //           usernameVariable: 'DOCKER_USERNAME', 
+          //           passwordVariable: 'DOCKER_PASSWORD'
+          //         )
+          //       ]) {
+          //       sh "docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD"
   
-              // Push the image
-              sh "docker push ${DOCKER_IMAGE}"
-          }
+          //     // Push the image
+          //     sh "docker push ${DOCKER_IMAGE}"
+          // }
         }
       }
     }
